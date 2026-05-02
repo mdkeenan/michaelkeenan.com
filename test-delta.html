@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Delta · Michael Keenan</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="sidebar__nav-wrap">
+          <button
+            type="button"
+            class="sidebar-nav__pager sidebar-nav__pager--prev"
+            data-nav-prev
+            aria-label="Previous menu items"
+            hidden>
+            &lt;
+          </button>
+          <nav class="sidebar__nav" id="site-nav">
+            <a class="sidebar__link" href="./index.html">Home</a>
+            <a class="sidebar__link" href="./projects.html">Projects</a>
+            <a class="sidebar__link" href="./about.html">About</a>
+            <a class="sidebar__link" href="./contact.html">Contact</a>
+            <a class="sidebar__link" href="./test-alpha.html">Test Alpha</a>
+            <a class="sidebar__link" href="./test-beta.html">Test Beta</a>
+            <a class="sidebar__link" href="./test-gamma.html">Test Gamma</a>
+            <a class="sidebar__link sidebar__link--active" href="./test-delta.html">Test Delta</a>
+          </nav>
+          <button
+            type="button"
+            class="sidebar-nav__pager sidebar-nav__pager--next"
+            data-nav-next
+            aria-label="Next menu items"
+            hidden>
+            &gt;
+          </button>
+        </div>
+      </aside>
+
+      <div class="main">
+        <header class="banner" role="banner">
+          <div class="banner__inner banner__inner--with-photo">
+            <div class="banner__media">
+              <img
+                class="banner__photo"
+                src="./media/profile_picture.png"
+                alt="Michael Keenan"
+              />
+            </div>
+            <div class="banner__text">
+              <div class="banner__title">Michael Keenan</div>
+              <p class="banner__subtitle">
+                Enterprise network security · Zero Trust architecture · Cloud security (AWS &amp; Azure)
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <main class="content" id="main">
+          <section class="section" aria-labelledby="test-delta-heading">
+            <h1 id="test-delta-heading">Test Delta</h1>
+            <p class="content__intro">
+              Fourth and final dummy route—furthest item in the strip for exercising “scroll right then follow
+              link” flows.
+            </p>
+          </section>
+
+          <section class="section" aria-labelledby="test-delta-detail-heading">
+            <h2 id="test-delta-detail-heading">Placeholder block</h2>
+            <p>
+              Delete <code>test-alpha.html</code> through <code>test-delta.html</code> and remove their links
+              from each page’s <code>#site-nav</code> when testing is done.
+            </p>
+          </section>
+
+          <section class="section section--footer">
+            <p class="content__cta">
+              Back to <a href="./test-alpha.html">Test Alpha</a> or <a href="./projects.html">projects</a>.
+            </p>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="./nav-mobile.js" defer></script>
+  </body>
+</html>

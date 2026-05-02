@@ -1,0 +1,452 @@
+/* --------------------------------------------------------------------------
+   Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  /* Visual Studio–style dark (step darker than default VS chrome) */
+  --bg: #171717;
+  --sidebar-bg: #1f1f1f;
+  --banner-bg: #1f1f1f;
+  --text: #e6e6e6;
+  --muted: #b3b3b3;
+  --border: #353538;
+  --link: #569cd6;
+  --link-hover: #79cdfe;
+  --focus: #007acc;
+  --list-hover: #252526;
+  --list-active: #2d2d30;
+
+  --sidebar-w: 168px;
+  --sidebar-link-font-size: 16px;
+  --sidebar-link-pad-y: 14px;
+  --sidebar-link-pad-x: 14px;
+  --radius: 12px;
+
+  /* Vertical rhythm: space above each stacked main section (matches ~24px content gutter) */
+  --section-stack-gap: 24px;
+
+  /* Space between section body and the horizontal rule below it */
+  --section-divider-pad: 24px;
+
+  /* Prose alignment (headings reset to start below) */
+  --prose-text-align: justify;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", ui-sans-serif, system-ui, -apple-system, Roboto, Ubuntu, Cantarell,
+    Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+code {
+  font-family: Consolas, "Courier New", ui-monospace, monospace;
+  font-size: 0.95em;
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  background-color: #323232;
+  border: 1px solid #3d3d3d;
+  color: #ce9178;
+}
+
+/* --------------------------------------------------------------------------
+   App shell
+   -------------------------------------------------------------------------- */
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar & mobile pager
+   -------------------------------------------------------------------------- */
+.sidebar {
+  width: auto;
+  background-color: var(--sidebar-bg);
+  border-right: 0;
+  border-bottom: 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+  height: auto;
+}
+
+.sidebar__nav-wrap {
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar__nav {
+  display: grid;
+  gap: 0;
+  border-bottom: 0;
+  background-color: var(--sidebar-bg);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+  min-width: 0;
+  overflow-anchor: none;
+}
+
+.sidebar__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-nav__pager {
+  display: none;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  padding: 0 0.35rem;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1;
+  font-family: inherit;
+  color: var(--text);
+  background-color: var(--sidebar-bg);
+  cursor: pointer;
+}
+
+.sidebar-nav__pager:hover {
+  background-color: var(--list-hover);
+  color: var(--text);
+}
+
+.sidebar-nav__pager:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.sidebar-nav__pager[hidden] {
+  display: none !important;
+}
+
+.sidebar-nav__pager:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.sidebar-nav__pager--prev {
+  border-right: 1px solid var(--border);
+}
+
+.sidebar-nav__pager--next {
+  border-left: 1px solid var(--border);
+}
+
+/* Every link keeps a bottom border, including the last (Contact), so separators match. */
+.sidebar__link {
+  display: block;
+  width: 100%;
+  padding: var(--sidebar-link-pad-y) var(--sidebar-link-pad-x);
+  border-radius: 0;
+  color: var(--muted);
+  font-size: var(--sidebar-link-font-size);
+  line-height: 1.4;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar__link:hover {
+  background-color: var(--list-hover);
+  color: var(--text);
+}
+
+.sidebar__link--active {
+  background-color: var(--list-active);
+  color: var(--text);
+  box-shadow: inset 2px 0 0 var(--focus);
+}
+
+/* --------------------------------------------------------------------------
+   Banner
+   -------------------------------------------------------------------------- */
+.banner {
+  border-bottom: 1px solid var(--border);
+  background-color: var(--banner-bg);
+}
+
+.banner__inner {
+  padding: 22px 24px;
+  max-width: 1100px;
+}
+
+.banner__inner--with-photo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(14px, 2.5vw, 22px);
+  --banner-photo-max: clamp(7rem, min(26vw, 11.25rem), 13rem);
+}
+
+.banner__media {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.banner__photo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: var(--banner-photo-max);
+  max-height: var(--banner-photo-max);
+  object-fit: contain;
+}
+
+.banner__text {
+  min-width: 0;
+}
+
+.banner__title {
+  font-size: 32px;
+  font-weight: 650;
+}
+
+.banner__subtitle {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.45;
+  max-width: 52rem;
+  text-align: var(--prose-text-align);
+}
+
+/* --------------------------------------------------------------------------
+   Main content & typography
+   -------------------------------------------------------------------------- */
+.content {
+  padding: 26px 24px 56px;
+  max-width: 1100px;
+  text-align: var(--prose-text-align);
+}
+
+.section {
+  scroll-margin-top: 84px;
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section:not(:last-child) {
+  padding-bottom: var(--section-divider-pad);
+}
+
+.content > .section + .section {
+  padding-top: var(--section-stack-gap);
+}
+
+.section:last-child {
+  border-bottom: 0;
+}
+
+.content h1 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  text-align: start;
+}
+
+.content h2 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-align: start;
+}
+
+.content p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.content__intro {
+  margin-top: 4px;
+  color: var(--text);
+}
+
+.content-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.content-list li + li {
+  margin-top: 8px;
+}
+
+.content-list--skills {
+  list-style: disc;
+  padding-left: 1.15rem;
+}
+
+.content-list__label {
+  display: inline-block;
+  min-width: 10.5rem;
+  margin-right: 0.35rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.content-list--skills .content-list__label::after {
+  content: ":";
+}
+
+.section--footer {
+  border-bottom: 0;
+}
+
+.section--footer .content__cta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.content__cta a {
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .banner__inner--with-photo {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 14px;
+  }
+
+  .banner__media {
+    justify-self: center;
+    height: auto;
+    max-height: none;
+    justify-content: center;
+  }
+
+  .banner__photo {
+    max-width: min(11rem, 72vw);
+    max-height: min(11rem, 72vw);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .banner__text {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .content-list__label {
+    display: block;
+    min-width: 0;
+    margin: 0 0 2px;
+  }
+}
+
+@media (max-width: 860px) {
+  .sidebar__nav-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .sidebar-nav__pager {
+    display: flex;
+  }
+
+  .sidebar__nav {
+    grid-auto-columns: max-content;
+    overflow-x: hidden;
+  }
+
+  .sidebar .sidebar__link {
+    width: auto;
+    min-width: 7.5rem;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+
+  .sidebar .sidebar__link:last-child {
+    border-right: 0;
+  }
+}
+
+@media (min-width: 861px) {
+  .app {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: var(--sidebar-w);
+    height: 100vh;
+    position: sticky;
+    border-right: 1px solid var(--border);
+    border-bottom: 0;
+  }
+
+  /* Unwrap so the nav stacks like before (no flex stretch to full sidebar height). */
+  .sidebar__nav-wrap {
+    display: contents;
+    border-bottom: 0;
+    height: auto;
+  }
+
+  .sidebar-nav__pager {
+    display: none !important;
+  }
+
+  .sidebar .sidebar__nav {
+    grid-auto-flow: row;
+    grid-auto-columns: initial;
+    overflow-x: visible;
+    flex: none;
+    min-height: 0;
+    min-width: auto;
+  }
+}

@@ -1,0 +1,19 @@
+---
+description: Primary physical device and viewport assumptions for mobile layout on this static site
+alwaysApply: true
+---
+
+# Mobile reference — iPhone 15 Pro Max
+
+When the user mentions **mobile view**, **narrow screens**, or **phone layout** for this site, assume they are checking on an **Apple iPhone 15 Pro Max** with a **6.7 inch** display (their primary test device).
+
+## Practical checks for CSS / HTML
+
+- Treat **~390–430 CSS px width** in portrait (standard Safari zoom, no desktop mode) as the main breakpoint neighborhood to verify alongside existing rules (this site already uses **860px** for the horizontal nav strip and **560px** for banner tweaks).
+- Remember **safe-area** (Dynamic Island / home indicator): avoid assuming the full rectangle is usable tap area without `env(safe-area-inset-*)` where fixed UI touches edges.
+- **Device pixel ratio** is high (3×); sharp borders and thin hairlines should still read clearly at 1px logical borders.
+
+## When implementing changes
+
+- Prefer validating behavior at widths representative of this phone rather than only desktop-resized windows when possible.
+- If behavior differs between Safari iOS and Chrome Android, call that out; still prioritize **Mobile Safari on this iPhone** as the reference the user described.

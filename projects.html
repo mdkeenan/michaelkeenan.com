@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects · Michael Keenan</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="sidebar__nav-wrap">
+          <button
+            type="button"
+            class="sidebar-nav__pager sidebar-nav__pager--prev"
+            data-nav-prev
+            aria-label="Previous menu items"
+            hidden>
+            &lt;
+          </button>
+          <nav class="sidebar__nav" id="site-nav">
+            <a class="sidebar__link" href="./index.html">Home</a>
+            <a class="sidebar__link sidebar__link--active" href="./projects.html">Projects</a>
+            <a class="sidebar__link" href="./about.html">About</a>
+            <a class="sidebar__link" href="./contact.html">Contact</a>
+            <a class="sidebar__link" href="./test-alpha.html">Test Alpha</a>
+            <a class="sidebar__link" href="./test-beta.html">Test Beta</a>
+            <a class="sidebar__link" href="./test-gamma.html">Test Gamma</a>
+            <a class="sidebar__link" href="./test-delta.html">Test Delta</a>
+          </nav>
+          <button
+            type="button"
+            class="sidebar-nav__pager sidebar-nav__pager--next"
+            data-nav-next
+            aria-label="Next menu items"
+            hidden>
+            &gt;
+          </button>
+        </div>
+      </aside>
+
+      <div class="main">
+        <header class="banner" role="banner">
+          <div class="banner__inner banner__inner--with-photo">
+            <div class="banner__media">
+              <img
+                class="banner__photo"
+                src="./media/profile_picture.png"
+                alt="Michael Keenan"
+              />
+            </div>
+            <div class="banner__text">
+              <div class="banner__title">Michael Keenan</div>
+              <p class="banner__subtitle">
+                Enterprise network security · Zero Trust architecture · Cloud security (AWS &amp; Azure)
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <main class="content" id="main">
+          <section class="section" aria-labelledby="projects-heading">
+            <h1 id="projects-heading">Projects</h1>
+            <p>Put your project list here.</p>
+          </section>
+
+          <section class="section" aria-labelledby="projects-example-1-heading">
+            <h2 id="projects-example-1-heading">Example</h2>
+            <p><a href="#" aria-disabled="true">Project One</a> — short description.</p>
+          </section>
+
+          <section class="section" aria-labelledby="projects-example-2-heading">
+            <h2 id="projects-example-2-heading">Example</h2>
+            <p><a href="#" aria-disabled="true">Project Two</a> — short description.</p>
+          </section>
+
+          <section class="section section--footer">
+            <p class="content__cta">
+              Questions about this work? See <a href="./about.html">about</a> or
+              <a href="./contact.html">reach out</a>.
+            </p>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="./nav-mobile.js" defer></script>
+  </body>
+</html>

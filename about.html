@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About · Michael Keenan</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="sidebar__nav-wrap">
+          <button
+            type="button"
+            class="sidebar-nav__pager sidebar-nav__pager--prev"
+            data-nav-prev
+            aria-label="Previous menu items"
+            hidden>
+            &lt;
+          </button>
+          <nav class="sidebar__nav" id="site-nav">
+            <a class="sidebar__link" href="./index.html">Home</a>
+            <a class="sidebar__link" href="./projects.html">Projects</a>
+            <a class="sidebar__link sidebar__link--active" href="./about.html">About</a>
+            <a class="sidebar__link" href="./contact.html">Contact</a>
+            <a class="sidebar__link" href="./test-alpha.html">Test Alpha</a>
+            <a class="sidebar__link" href="./test-beta.html">Test Beta</a>
+            <a class="sidebar__link" href="./test-gamma.html">Test Gamma</a>
+            <a class="sidebar__link" href="./test-delta.html">Test Delta</a>
+          </nav>
+          <button
+            type="button"
+            class="sidebar-nav__pager sidebar-nav__pager--next"
+            data-nav-next
+            aria-label="Next menu items"
+            hidden>
+            &gt;
+          </button>
+        </div>
+      </aside>
+
+      <div class="main">
+        <header class="banner" role="banner">
+          <div class="banner__inner banner__inner--with-photo">
+            <div class="banner__media">
+              <img
+                class="banner__photo"
+                src="./media/profile_picture.png"
+                alt="Michael Keenan"
+              />
+            </div>
+            <div class="banner__text">
+              <div class="banner__title">Michael Keenan</div>
+              <p class="banner__subtitle">
+                Enterprise network security · Zero Trust architecture · Cloud security (AWS &amp; Azure)
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <main class="content" id="main">
+          <section class="section" aria-labelledby="about-heading">
+            <h1 id="about-heading">About</h1>
+            <p class="content__intro">
+              This site is a portfolio and professional hub for Michael Keenan, a Network Security Engineer
+              specializing in enterprise security, Zero Trust architecture, and cloud integration. It highlights
+              real-world projects, technical expertise, and experience across healthcare, energy, and MSSP
+              environments. The goal is to showcase practical, security-first solutions and connect with
+              organizations looking to strengthen their infrastructure.
+            </p>
+          </section>
+
+          <section class="section" aria-labelledby="overview-heading">
+            <h2 id="overview-heading">What you&apos;ll find here</h2>
+            <ul class="content-list">
+              <li>
+                A portfolio and professional hub for Michael Keenan, a Network Security Engineer specializing in enterprise
+                security, Zero Trust architecture, and cloud integration.
+              </li>
+              <li>Real-world projects, technical expertise, and experience across healthcare, energy, and MSSP environments.</li>
+              <li>
+                Practical, security-first solutions—and a way to connect with organizations looking to strengthen their
+                infrastructure.
+              </li>
+              <li>
+                Jump to <a href="./projects.html">projects</a> or <a href="./contact.html">contact</a> from anywhere on the site.
+              </li>
+            </ul>
+          </section>
+
+          <section class="section section--footer">
+            <p class="content__cta">
+              Explore <a href="./projects.html">projects</a> for implementations, or
+              <a href="./contact.html">reach out</a> to connect.
+            </p>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="./nav-mobile.js" defer></script>
+  </body>
+</html>
