@@ -256,6 +256,21 @@ code {
   text-align: var(--prose-text-align);
 }
 
+.banner__resume {
+  margin: 10px 0 0;
+}
+
+.banner__resume-link {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.banner__resume-link:hover {
+  text-decoration-thickness: 2px;
+}
+
 /* --------------------------------------------------------------------------
    Main content & typography
    -------------------------------------------------------------------------- */
