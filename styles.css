@@ -260,6 +260,16 @@ code {
   min-width: 0;
 }
 
+/* Frame around profile photo: flat 1px border on #1f1f1f was too low-contrast to read. */
+.banner__inner--with-photo .banner__media {
+  padding: 3px;
+  background-color: color-mix(in srgb, var(--border) 86%, white 14%);
+  border-radius: 13px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.065),
+    0 1px 2px rgba(0, 0, 0, 0.32);
+}
+
 .banner__photo {
   display: block;
   width: auto;
@@ -267,6 +277,8 @@ code {
   max-width: var(--banner-photo-max);
   max-height: var(--banner-photo-max);
   object-fit: contain;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.075);
 }
 
 .banner__text {
