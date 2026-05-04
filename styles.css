@@ -232,6 +232,10 @@ code {
   box-shadow: inset 2px 0 0 var(--focus);
 }
 
+.sidebar__link-home-img {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    Banner
    -------------------------------------------------------------------------- */
@@ -448,15 +452,9 @@ code {
 }
 
 @media (max-width: 860px) {
+  /* Logo lives in the first nav slot (Home); hide duplicate mark above the strip. */
   .sidebar__mark-wrap {
-    padding: 10px 12px;
-  }
-
-  .sidebar__mark {
-    width: var(--sidebar-mark-size-mobile);
-    height: var(--sidebar-mark-size-mobile);
-    max-width: none;
-    aspect-ratio: auto;
+    display: none;
   }
 
   .sidebar__nav-wrap {
@@ -481,8 +479,51 @@ code {
     border-right: 1px solid var(--border);
   }
 
+  .sidebar .sidebar__link:not(.sidebar__link--home) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar .sidebar__link--home {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.25rem;
+    padding: var(--sidebar-link-pad-y) 12px;
+  }
+
+  .sidebar__link-home-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .sidebar__link-home-img {
+    display: block;
+    width: var(--sidebar-mark-size-mobile);
+    height: var(--sidebar-mark-size-mobile);
+    object-fit: cover;
+    border-radius: 0;
+  }
+
   .sidebar .sidebar__link:last-child {
     border-right: 0;
+  }
+
+  .banner__inner--with-photo {
+    grid-template-columns: 1fr;
+  }
+
+  .banner__inner--with-photo .banner__media {
+    display: none;
   }
 }
 
