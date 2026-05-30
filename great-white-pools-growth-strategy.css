@@ -9,6 +9,10 @@
   border-bottom: 0;
 }
 
+.content--gwp .gwp-report p {
+  color: #606060;
+}
+
 .content--gwp .gwp-report h2 {
   color: #061220;
   text-transform: none;
@@ -63,7 +67,7 @@
 }
 .gwp-report .wrap{max-width:1040px; margin:0 auto; padding:0 28px}
 .gwp-report h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif; font-weight:600; line-height:1.12; color:var(--ink); letter-spacing:-.01em}
-.gwp-report p{margin:.55em 0}
+.gwp-report p{margin:.55em 0; color:#606060}
 .gwp-report a{color:var(--teal-deep)}
 .gwp-report .mono{font-family:"IBM Plex Mono",monospace}
 .gwp-report .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--teal); font-weight:600}
